@@ -1,87 +1,152 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
-        <VuetifyLogo />
-      </v-card>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>
-            Vuetify is a progressive Material Design component framework for
-            Vue.js. It was designed to empower developers to create amazing
-            applications.
-          </p>
-          <p>
-            For more information on Vuetify, check out the
-            <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
+  <main class="px-10 py-10">
+    <v-container>
+      <v-row>
+        <v-col md="12">
+          <h1>Random result</h1>
+        </v-col>
+        <v-col md="2">
+          <v-card :loading="isApplyLoading">
+            <v-card-title class="px-10 py-10 justify-center"
+              ><h1 class="display-4">?</h1></v-card-title
             >
-              documentation </a
-            >.
-          </p>
-          <p>
-            If you have questions, please join the official
-            <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
+          </v-card>
+        </v-col>
+        <v-col md="2">
+          <v-card :loading="isApplyLoading">
+            <v-card-title class="px-10 py-10 justify-center"
+              ><h1 class="display-4">?</h1></v-card-title
             >
-              discord </a
-            >.
-          </p>
-          <p>
-            Find a bug? Report it on the github
-            <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
+          </v-card> </v-col
+        ><v-col md="2">
+          <v-card :loading="isApplyLoading">
+            <v-card-title class="px-10 py-10 justify-center"
+              ><h1 class="display-4">?</h1></v-card-title
             >
-              issue board </a
-            >.
-          </p>
-          <p>
-            Thank you for developing with Vuetify and I look forward to bringing
-            more exciting features in the future.
-          </p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3" />
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
+          </v-card> </v-col
+        ><v-col md="2">
+          <v-card :loading="isApplyLoading">
+            <v-card-title class="px-10 py-10 justify-center"
+              ><h1 class="display-4">?</h1></v-card-title
+            >
+          </v-card> </v-col
+        ><v-col md="2">
+          <v-card :loading="isApplyLoading">
+            <v-card-title class="px-10 py-10 justify-center"
+              ><h1 class="display-4">?</h1></v-card-title
+            >
+          </v-card> </v-col
+        ><v-col md="2">
+          <v-card :loading="isApplyLoading">
+            <v-card-title class="px-10 py-10 justify-center"
+              ><h1 class="display-4">?</h1></v-card-title
+            >
+          </v-card>
+        </v-col>
+        <v-col md="12">
+          <v-btn @click="applyLotto()" color="primary" block> Apply </v-btn>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col md="12">
+          <h1>Buy Number</h1>
+        </v-col>
+        <v-col md="2">
+          <v-text-field
+            class="display-1"
+            placeholder="1st number"
+            solo
+            type="number"
+            height="220"
+          ></v-text-field>
+        </v-col>
+        <v-col md="2">
+          <v-text-field
+            class="display-1"
+            placeholder="2nd number"
+            solo
+            type="number"
+            height="220"
+          ></v-text-field>
+        </v-col>
+        <v-col md="2">
+          <v-text-field
+            class="display-1"
+            placeholder="3rd number"
+            solo
+            type="number"
+            height="220"
+          ></v-text-field>
+        </v-col>
+        <v-col md="2">
+          <v-text-field
+            class="display-1"
+            placeholder="4th number"
+            solo
+            type="number"
+            height="220"
+          ></v-text-field>
+        </v-col>
+        <v-col md="2">
+          <v-text-field
+            class="display-1"
+            placeholder="5th number"
+            solo
+            type="number"
+            height="220"
+          ></v-text-field>
+        </v-col>
+        <v-col md="2">
+          <v-text-field
+            class="display-1"
+            placeholder="6th number"
+            solo
+            type="number"
+            height="220"
+          ></v-text-field>
+        </v-col>
+        <v-col md="4">
+          <v-btn color="primary" block>Buy this number</v-btn>
+        </v-col>
+        <v-col md="4">
+          <v-btn color="warning" block>Random number</v-btn>
+        </v-col>
+        <v-col md="4">
+          <v-btn color="error" block>Reset number</v-btn>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col md="6">
+          <v-card class="px-5 py-5" height="600"
+            ><h1>Your Buying Number</h1>
+            <v-divider></v-divider>
+            <p>1 - 123456</p></v-card
           >
-            Nuxt Documentation
-          </a>
-          <br />
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
+        </v-col>
+        <v-col md="6">
+          <v-card class="px-5 py-5" height="600"
+            ><h1>Prize History</h1>
+            <v-divider></v-divider>
+            <p>1 - 123456</p></v-card
           >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire"> Continue </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+        </v-col>
+      </v-row>
+    </v-container>
+  </main>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  data() {
+    return {
+      isApplyLoading: false,
+    }
+  },
+  methods: {
+    applyLotto() {
+      this.isApplyLoading = 'primary'
+    },
+  },
 }
 </script>
